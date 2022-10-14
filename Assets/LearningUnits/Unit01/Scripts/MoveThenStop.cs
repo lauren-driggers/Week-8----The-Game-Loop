@@ -8,7 +8,7 @@ public class MoveThenStop : MonoBehaviour
     Vector3 destination;
 
     // DIRECTIONS: In this Unit, no new code should be written. The goal is to use
-    // the existing code lines, rearranged (as in, move line 10 to line 12, and 12 to 10, etc), to get the
+    // the existing code, rearranged, to get the
     // cube to stop moving when it reaches its destination;
 
     // Start is called before the first frame update
@@ -21,12 +21,14 @@ public class MoveThenStop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(moveDirection);
         
-        if (Vector3.Distance(transform.position, destination) < .1f)
+        if (Vector3.Distance(transform.position, destination) > .1f)
         {
+            transform.Translate(moveDirection);
+            // moved this line in here and switched the comparison operator to >
+           
         }
 
-        return;
+    
     }
 }
